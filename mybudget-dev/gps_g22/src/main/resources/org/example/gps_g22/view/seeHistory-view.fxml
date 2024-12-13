@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.collections.FXCollections?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.gps_g22.view.SeeHistoryView" alignment="CENTER" prefWidth="600"
+      prefHeight="400">
+    <HBox alignment="CENTER" style="-fx-spacing: 30; -fx-end-margin: 30">
+        <Label text="Show by Category: " style="-fx-font-size: 24; -fx-font-weight: bold; -fx-alignment: center;"/>
+        <ComboBox fx:id="ShowbyCategoryComboBox" onAction="#handleDisplayBy"
+                  style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: lightgray; -fx-text-fill: white">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="ALL"/>
+                    <String fx:value="ORDINARIES"/>
+                    <String fx:value="PREFERRED"/>
+                    <String fx:value="SALE"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <ListView fx:id="stringListView" prefHeight="300" prefWidth="500"/>
+    </ScrollPane>
+</VBox>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<StackPane fx:id="parentContainer" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.gps_g22.view.ReportsView">
+
+    <AnchorPane fx:id="anchorRoot" prefHeight="600.0" prefWidth="900.0"
+                style="-fx-background-color: white; -fx-padding: 10;">
+
+        <VBox alignment="CENTER" layoutX="61.599999999999994" layoutY="32.8" prefHeight="539.0" prefWidth="839.0"
+              spacing="20" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="2.0">
+            <HBox AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                <children>
+                    <Button fx:id="previousButton" onAction="#handlePreviousButton"
+                            style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 14px; -fx-border-color: transparent; -fx-cursor: hand; -fx-min-width: 90px;"
+                            text="← Previous"/>
+                    <Label prefHeight="35.0" prefWidth="900.0"
+                           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 0 20 0 40;" text="Reports"/>
+                </children>
+            </HBox>
+
+            <GridPane alignment="CENTER" hgap="10" vgap="15">
+                <columnConstraints>
+                    <ColumnConstraints halignment="LEFT" minWidth="100"/>
+                    <ColumnConstraints halignment="LEFT" minWidth="150"/>
+                </columnConstraints>
+
+                <Label style="-fx-font-size: 14px;" text="Select an account" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="selectAccountComboBox" prefWidth="150" promptText=""
+                          GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label style="-fx-font-size: 14px;" text="Report of:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="typeReportComboBox" prefWidth="150" promptText="Transactions/Stocks"
+                          GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Transactions"/>
+                            <String fx:value="Stocks"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label style="-fx-font-size: 14px;" text="Select Type of Transaction:" GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+                <ComboBox fx:id="typeTransactionComboBox" prefWidth="150" GridPane.columnIndex="1"
+                          GridPane.rowIndex="2">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="All"/>
+                            <String fx:value="Income"/>
+                            <String fx:value="Expense"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label style="-fx-font-size: 14px;" text="Select Type of Stock:" GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+                <ComboBox fx:id="typeStockComboBox" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="All"/>
+                            <String fx:value="Ordinaries"/>
+                            <String fx:value="Preferred"/>
+                            <String fx:value="Sale"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label style="-fx-font-size: 14px;" text="Select time frame:" GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"/>
+                <ComboBox fx:id="timeFrameComboBox" prefWidth="150" promptText="Monthly/Annual" GridPane.columnIndex="1"
+                          GridPane.rowIndex="4">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Monthly"/>
+                            <String fx:value="Annual"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label style="-fx-font-size: 14px;" text="Select month:" GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"/>
+                <ComboBox fx:id="monthComboBox" prefWidth="150" promptText="Month" GridPane.columnIndex="1"
+                          GridPane.rowIndex="5">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="January"/>
+                            <String fx:value="February"/>
+                            <String fx:value="March"/>
+                            <String fx:value="April"/>
+                            <String fx:value="May"/>
+                            <String fx:value="June"/>
+                            <String fx:value="July"/>
+                            <String fx:value="August"/>
+                            <String fx:value="September"/>
+                            <String fx:value="October"/>
+                            <String fx:value="November"/>
+                            <String fx:value="December"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label style="-fx-font-size: 14px;" text="Select year:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                <ComboBox fx:id="yearComboBox" prefWidth="150" promptText="Year" GridPane.columnIndex="1"
+                          GridPane.rowIndex="6">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="2000"/>
+                            <String fx:value="2001"/>
+                            <String fx:value="2002"/>
+                            <String fx:value="2003"/>
+                            <String fx:value="2004"/>
+                            <String fx:value="2004"/>
+                            <String fx:value="2006"/>
+                            <String fx:value="2007"/>
+                            <String fx:value="2008"/>
+                            <String fx:value="2009"/>
+                            <String fx:value="2010"/>
+                            <String fx:value="2011"/>
+                            <String fx:value="2012"/>
+                            <String fx:value="2013"/>
+                            <String fx:value="2014"/>
+                            <String fx:value="2015"/>
+                            <String fx:value="2017"/>
+                            <String fx:value="2017"/>
+                            <String fx:value="2018"/>
+                            <String fx:value="2019"/>
+                            <String fx:value="2020"/>
+                            <String fx:value="2021"/>
+                            <String fx:value="2022"/>
+                            <String fx:value="2023"/>
+                            <String fx:value="2024"/>
+                            <String fx:value="2025"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <rowConstraints>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+
+            <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20 0 0 0;">
+                <HBox alignment="CENTER" spacing="20">
+                    <Button fx:id="PDFButton" onAction="#downloadPDF"
+                            style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 20;"
+                            text="Download PDF"/>
+
+                    <Button fx:id="CSVButton" onAction="#downloadCSV"
+                            style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 20;"
+                            text="Download CSV"/>
+
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </AnchorPane>
+</StackPane>

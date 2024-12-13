@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.gps_g22.view.CalculateValorizationView"
+      alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+
+    <!-- Label de descrição fora da GridPane -->
+    <Label text="Calculate the appreciation/depreciation of a potential stock:"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <!-- Grelha para os campos -->
+    <GridPane alignment="CENTER" hgap="10" vgap="10">
+        <!-- Campo de Preço Inicial -->
+        <Label text="Initial Price:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="precoInicialField" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="Enter the initial price"/>
+
+        <!-- Campo de Preço Final -->
+        <Label text="Final Price:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="precoFinalField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Enter the final price"/>
+
+        <!-- Botão para calcular -->
+        <Button text="Calculate" fx:id="calcularButton" GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#handleCalcularValorizacao"/>
+
+        <!-- Resultado -->
+        <Label text="Result:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <Label fx:id="resultadoLabel" text="" GridPane.rowIndex="3" GridPane.columnIndex="1" style="-fx-text-fill: black;"/>
+    </GridPane>
+</VBox>

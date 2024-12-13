@@ -1,0 +1,74 @@
+package org.example.gps_g22.model.data.transaction;
+
+public class Portfolio {
+}
+
+//create a class of a car
+<<<<<<<<<<<<<<  ✨ Codeium Command ⭐ >>>>>>>>>>>>>>>>
+class Car{
+    private String brand;
+    private String model;
+    private int year;
+
+    public Car(String brand, String model, int year){
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+}
+
+class Portfolio{
+    private List<Transaction> transactions;
+
+    public Portfolio(){
+        transactions = new ArrayList<>();
+    }
+
+    public void addTransaction(Transaction t){
+        transactions.add(t);
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+}
+
+class Stock{
+    private String symbol;
+    private String company;
+    private double price;
+
+    public Stock(String symbol, String company, double price){
+        this.symbol = symbol;
+        this.company = company;
+        this.price = price;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}

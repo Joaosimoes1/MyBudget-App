@@ -1,0 +1,90 @@
+package org.example.gps_g22.model.data;
+
+import org.example.gps_g22.dto.TransactInfo;
+import org.example.gps_g22.model.Manager;
+
+import java.io.*;
+import java.util.List;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.pdf.PdfWriter;
+public class ReportGenerator {
+
+    private ReportGenerator() {
+    }//no instances
+
+
+    public static void downloadPDF() {
+        System.out.println("DOWNLOAD PDF SELECIONADO");
+        String inputFilePath = "gps_g22/src/main/java/org/example/gps_g22/testeGPS.txt";  // Caminho do arquivo de texto
+        String outputFilePath = "gps_g22/src/main/java/org/example/gps_g22/testeGPS.pdf"; // Caminho onde o PDF será salvo
+
+
+        List<TransactInfo> list =
+                Manager.getInstance().getTransactions(Manager.getInstance().getCurrentAccount().getID(), 10);
+
+
+        try {
+//             Criação do documento PDF
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(outputFilePath));
+            document.open();
+
+            // Leitura do arquivo de texto
+            BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
+            String line;
+
+            // Lê linha por linha e adiciona ao PDF
+            while ((line = br.readLine()) != null) {
+
+            }
+            for (TransactInfo t : list) {
+
+                Paragraph paragraph = new Paragraph(t.toString(), new Font(Font.FontFamily.TIMES_ROMAN, 12));
+                document.add(paragraph);
+            }
+
+            System.out.println("Arquivo CSV gerado com sucesso!");
+
+//            br.close();
+//            document.close();
+
+            System.out.println("Arquivo PDF gerado com sucesso!");
+//        } catch (FileNotFoundException e) {
+//            System.err.println("Erro: Arquivo não encontrado.");
+//        } catch (IOException e) {
+//            System.err.println("Erro ao ler o arquivo.");
+        } catch (Exception e) {
+            System.err.println("Erro ao gerar o PDF.");
+        }
+    }
+
+    public static void downloadCSV() {
+        System.out.println("DOWNLOAD CSV SELECIONADO");
+        // Caminho do arquivo de texto de entrada
+//        String inputFilePath = "gps_g22/src/main/java/org/example/gps_g22/testeGPS.txt";
+        // Caminho do arquivo CSV de saída
+        String outputFilePath = "gps_g22/src/main/java/org/example/gps_g22/testeGPS.csv";
+        // Delimitador do arquivo de texto original (por exemplo, espaço ou vírgula)
+        String delimiter = "\\s+"; // "\\s+" é um regex para um ou mais espaços em branco
+
+        List<TransactInfo> list =
+                Manager.getInstance().getTransactions(Manager.getInstance().getCurrentAccount().getID(), 10);
+
+        try (FileWriter csvWriter = new FileWriter(outputFilePath)) {
+
+
+            for (TransactInfo t : list) {
+                csvWriter.write(t.toCsvItem());
+                csvWriter.append("\n");
+            }
+
+            System.out.println("Arquivo CSV gerado com sucesso!");
+        } catch (
+                IOException e) {
+            System.err.println("Erro ao converter para CSV: " + e.getMessage());
+        }
+    }
+}

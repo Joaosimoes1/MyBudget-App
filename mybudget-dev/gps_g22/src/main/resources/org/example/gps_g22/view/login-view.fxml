@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<StackPane fx:id="parentContainer" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;"
+           xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx"
+           fx:controller="org.example.gps_g22.view.HelloController">
+    <!-- Initial content -->
+    <AnchorPane fx:id="anchorRoot" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;">
+        <HBox spacing="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+
+            <AnchorPane prefWidth="450.0" style="-fx-background-color: #007bff;">
+                <HBox alignment="center" spacing="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../logoMyBudget.jpg"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </AnchorPane>
+
+            <AnchorPane prefWidth="450.0" style="-fx-background-color: white;">
+                <VBox alignment="CENTER" layoutX="70" layoutY="150" spacing="15">
+                    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Login" textFill="black"/>
+                    <TextField fx:id="usernameField" prefWidth="300.0" promptText="Username"/>
+                    <PasswordField fx:id="passwordField" prefWidth="300.0" promptText="Password"/>
+                    <Label style="-fx-font-size: 10px;" text="Forgot password?" textFill="#007bff"/>
+
+                    <HBox alignment="center" spacing="10">
+                        <Button fx:id="loginButton" onAction="#onLoginButtonClick" prefWidth="90"
+                                style="-fx-background-color: #007bff; -fx-text-fill: white;" text="Login"/>
+                        <Button fx:id="signUpButton" onAction="#handleSignUpButton" prefWidth="90"
+                                style="-fx-background-color: #007bff; -fx-text-fill: white;" text="Sign Up"/>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </HBox>
+    </AnchorPane>
+</StackPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="parentContainer" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gps_g22.view.SpendingGoalsView">
+
+    <AnchorPane fx:id="anchorRoot" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;">
+        <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="900.0" spacing="5" style="-fx-padding: 20;">
+            <VBox prefHeight="0.0" prefWidth="420.0" spacing="5" style="-fx-padding: 20;">
+                <Button fx:id="previousButton" alignment="CENTER" onAction="#handlePreviousButton" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 14px; -fx-border-color: transparent; -fx-cursor: hand;" text="← Previous">
+               <opaqueInsets>
+                  <Insets top="12.0" />
+               </opaqueInsets></Button>
+                <Label prefHeight="35.0" prefWidth="352.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Budget Management" />
+            </VBox>
+
+            <HBox alignment="CENTER_RIGHT" prefHeight="112.0" prefWidth="453.0" spacing="5" style="-fx-padding: 20;">
+                <Button fx:id="AddSpendingGoal" onAction="#handleAddSpendingGoal" prefHeight="40" prefWidth="40" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #3a79e3; -fx-text-fill: white" text="+" />
+                <Button fx:id="RemoveSpendingGoal" onAction="#handleRemoveSpendingGoal" prefHeight="41.0" prefWidth="40" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #e80b0b; -fx-text-fill: white" text="-" />
+                <Button fx:id="editSpendingGoal" onAction="#handleEditSpendingGoal"
+                        prefHeight="40" prefWidth="40"
+                        style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #f0ad4e; -fx-text-fill: white"
+                        text="✎" />
+            </HBox>
+        </HBox>
+
+    </top>
+
+    <center>
+        <VBox prefHeight="386.0" prefWidth="900.0" style="-fx-padding: 20;">
+            <TableView fx:id="spendingGoalsTableView" prefHeight="578.0" prefWidth="860.0" style="-fx-border-color: black; -fx-border-width: 1;">
+                <columns>
+                    <TableColumn fx:id="nameColumn" prefWidth="286.0" resizable="false" text="Name" />
+                    <TableColumn fx:id="goalAmountColumn" prefWidth="286.0" resizable="false" text="Goal Amount" />
+                    <TableColumn fx:id="spentAmountColumn" prefWidth="286.0" resizable="false" text="Spent Amount" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+    </BorderPane>
+    </AnchorPane>
+</StackPane>

@@ -1,0 +1,39 @@
+package org.example.gps_g22;
+
+import org.example.gps_g22.model.commands.AddCardCommand;
+import org.example.gps_g22.model.commands.AddTransactionCommand;
+import org.example.gps_g22.model.commands.CommandManager;
+import org.example.gps_g22.model.data.DataModel;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class ReportsTest {
+    // TODO
+
+    DataModel dataModel;
+    CommandManager cmdManager;
+
+    static String accountName = "TestName";
+
+    @BeforeEach
+    public void setup() {
+        long cardNum = 1234567890123456L;
+        int ano = 2024;
+        int m = 12;
+        dataModel = new DataModel("TestUser", "Pass");
+        cmdManager = new CommandManager();
+        cmdManager.invokeCommand(new AddCardCommand(dataModel, accountName, cardNum, m, ano));
+        cmdManager.invokeCommand(new AddTransactionCommand(dataModel, dataModel.getAccounts().get(0).getId(), "Bank - rent", 123345L, 999.99));
+    }
+
+
+    @Test
+    public void testPDF() {
+
+    }
+
+    @Test
+    public void testCSV() {
+
+    }
+}
